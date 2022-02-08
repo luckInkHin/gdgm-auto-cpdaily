@@ -1,0 +1,88 @@
+﻿###############################################################################
+# 本项目的源代码在MPL2.0协议下发布，同时附加以下条目：                            #
+# 非商业性使用 — 不得将此项目及其衍生的项目的源代码和二进制产品用于任何商业和盈利用途#
+###############################################################################
+Version: 1.8.0
+# 调试模式，用于寻找错误出现的坐标，默认为false
+# 特别提示：调试完成后请记得将debug改为false
+# 特别提示：调试完成后请记得将debug改为false
+# 特别提示：调试完成后请记得将debug改为false
+debug: False
+# 消息推送配置，method 0 为禁用 1 为webApi模式 2 为本地smtp模式 3 为qmsg模式(qq号模式)
+# 消息推送配置，method 4 为qmsg模式(qq群模式) method 5 为企业微信模式 method 6 为Server酱模式
+notifyOption:
+    method: 2
+    #############配置1-4选填一个即可
+    #############1 webApi配置,根据不同api可能需要自行修改推送模块
+    mailApiUrl: 'http://api.ruoli.cc/mail/sendMail'
+    #############2 发信方邮箱账号密码,smtp服务器qq邮箱为smtp.qq.com,163邮箱为smtp.163.com
+    smtpOption:
+        userName: ''
+        passWord: ''
+        server: 'smtp.exmail.qq.com'
+    #############3 完善qmsgKey即可,需要完善-user字段中qId参数，详见下方例子
+    qmsgOption:
+        key: ''
+        baseUrl: 'https://qmsg.zendee.cn/'
+    #############4 企业微信配置
+    qywxOption:
+        corpid: ''
+        corpsecret: ''
+        agentid: ''
+    #############5 Server酱的Key请在下方rcvAcc处填写
+    serverChanOption:
+        baseUrl: 'https://sctapi.ftqq.com/'
+# 默认不填，如需使用先开通腾讯云OCR服务，再申请API密钥
+ocrOption:
+    SecretId: ''
+    SecretKey: ''
+# 如IP被拦截，可设置全局HTTP代理
+httpProxy: ''
+#用户组配置
+##################################################
+# 温馨提示：请仔细注意每个模板是属于哪个任务类型的配置！##
+##################################################
+users:
+    # 第一个用户配置
+    # 以下配置为工作日志
+    # 这里默认仅适配广东工贸职业技术学院
+    - user:
+        # 任务类型（收集：0、签到：1、查寝：2、政工签到：3、教师工作日志：4）
+        type: 0
+        # school 学校全称
+        schoolName: 广东工贸职业技术学院
+        # username 学号或者工号
+        username: '学号'
+        # password 密码
+        password: '密码'
+        # 地址信息
+        address: '中国广东省广州市天河区牛利岗北街'
+        notifyOption: 
+            # method和顶部参数一致，不填默认按照顶部参数执行
+            # method: 0
+            # rcvAcc为接受消息的账号，可以为Email账号、QQ号、或者是企业微信ID(@all为全体)
+            rcvAcc: 'your_rcvAccount'
+        # 附上经纬度查询地址（请自行选择自己的学校地址，address，lon，lat都要填查询到的）：http://api.map.baidu.com/lbsapi/getpoint/index.html
+        # lon 经度,
+        lon: 113.327269
+        # lat 纬度
+        lat: 23.178944
+        # 是否检查表单的标题（1代表检查，0代表不检查）
+        checkTitle: 1
+        # 表单信息
+        forms:
+            - form:
+                title: 你目前是否在岗实习（不含兼职）？
+                value:  否
+            - form:
+                title: 今日体温℃
+                value: 正常小于37.3℃
+            - form:
+                title: 目前体温（单位：℃）
+                value: "36.5"
+            - form:
+                title: 健康状况
+                value: 良好
+            - form:
+                title: 是否已接种新冠疫苗？
+                value: 是（第二针）
