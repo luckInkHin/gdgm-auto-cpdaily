@@ -16,3 +16,5 @@
  - 修改`config.yml`文件中的相关配置内容
  - 运行`pip install -r requirements.txt -t ./ -i https://mirrors.aliyun.com/pypi/simple`安装项目依赖
  - 执行`Python index.py`即可运行项目
+#### Windows下部署案例：
+http://120.55.76.68/archives/%E4%BB%8A%E6%97%A5%E6%A0%A1%E5%9B%AD%E8%87%AA%E5%8A%A8%E5%8C%96%E7%9A%84%E9%83%A8%E7%BD%B2
